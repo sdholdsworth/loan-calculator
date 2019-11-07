@@ -1,0 +1,40 @@
+/* Imported Font Styles*/
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+/*Main Styles*/
+body {
+  background-image: url('../images/money-bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.35);
+}
+
+/*When loading, set loading image and result values to 'display: none' by default */
+#loading, #results {
+  display: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h6 {
+  text-align: left;
+}
+
+h1, h5, h6 {
+  font-family: 'Special Elite', 'Century Gothic';
+  letter-spacing: 1px;
+}
+
+/* Media Queries */
+/*Small Devices*/
+@media screen and (max-width: 350px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}

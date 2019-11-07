@@ -1,0 +1,22 @@
+{
+  "name": "Loan-Calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src/app.js --out-file=dist/scripts/app.js --presets=env --watch",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://sdholdsworth.github.io/loan-calculator",
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
