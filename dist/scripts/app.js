@@ -1,10 +1,18 @@
 //Utilize 'Strict' Mode
 'use strict';
 
-//Submit Event Listener
+//Global Variables
 
+var amount = document.querySelector('#amount');
+var interest = document.querySelector('#interest');
+var years = document.querySelector('#years');
+var monthlyPayment = document.querySelector('#monthly-payment');
+var totalPayment = document.querySelector('#total-payment');
+var totalInterest = document.querySelector('#total-interest');
+
+//Event Listeners
+//Submit Values Entered
 document.querySelector('#loan-form').addEventListener('submit', function (e) {
-
   //Hide Results
   document.querySelector('#results').style.display = 'none';
   //Show Loading Image
@@ -14,17 +22,26 @@ document.querySelector('#loan-form').addEventListener('submit', function (e) {
   //Prevent default behaviour on submit input
   e.preventDefault();
 });
+//Clear Results
+document.querySelector('#clear-result').addEventListener('click', function () {
+  //Hide Results
+  document.querySelector('#results').style.display = 'none';
+  //Show Loading Image
+  document.querySelector('#loading').style.display = 'block';
+  //Show loader for 2secs only (for better UI experience)
+  setTimeout(function () {
+    document.querySelector('#loading').style.display = 'none';
+    amount.value = '';
+    interest.value = '';
+    years.value = '';
+    monthlyPayment.value = '';
+    totalPayment.value = '';
+    totalInterest.value = '';
+  }, 2000);
+});
 
 //Calculate Results
 var calculateResults = function calculateResults() {
-
-  //Variables for UI
-  var amount = document.querySelector('#amount');
-  var interest = document.querySelector('#interest');
-  var years = document.querySelector('#years');
-  var monthlyPayment = document.querySelector('#monthly-payment');
-  var totalPayment = document.querySelector('#total-payment');
-  var totalInterest = document.querySelector('#total-interest');
 
   //User Entered Values (Formulas taken from external resource)
   var principal = parseFloat(amount.value); //parse the desired loan amount entered to a float value
@@ -72,11 +89,11 @@ var displayError = function displayError(error) {
   //Insert Error (above heading)
   card.insertBefore(errorDiv, result);
 
-  //Clear Error after some time (better UI experience)
-  setTimeout(autoClearError, 3500);
-
   //Clear Error
   var autoClearError = function autoClearError() {
     errorDiv.remove();
   };
+
+  //Clear Error after some time (better UI experience)
+  setTimeout(autoClearError, 3500);
 };
